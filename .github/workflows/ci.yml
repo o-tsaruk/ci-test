@@ -12,5 +12,7 @@ jobs:
         uses: mb2dev/github-action-comment-pull-request@1.0.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: File sizes
         run: |
           find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .contract \; | sort -k2
