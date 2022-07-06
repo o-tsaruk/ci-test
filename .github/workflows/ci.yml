@@ -20,9 +20,9 @@ jobs:
         env:
           PR: ${{ steps.findPr.outputs.pr }}
 
-#      - name: Create comment
-#        uses: peter-evans/create-or-update-comment@v1
-#        with:
-#            issue-number: ${{PR}}
-#            body: |
-#              ${PR}
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+            issue-number: ${PR}
+            body: |
+              ${PR}
