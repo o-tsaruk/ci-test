@@ -7,7 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: ABC
       - uses: actions/checkout@v1
       - uses: jwalton/gh-find-current-pr@v1
         id: findPr
