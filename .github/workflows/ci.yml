@@ -8,12 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create comment
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            Find rs files
-
-      - name: Check outputs
-        run: |
-          find . -type f -name "*.rs"
+            issue-number: ${{ github.event.pull_request.number }}
+            body: |
+              This comment was written by a bot!
+            reactions: rocket
