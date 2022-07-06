@@ -23,6 +23,6 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
-            issue-number: PR
+            issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
               ${PR}
