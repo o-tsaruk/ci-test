@@ -23,6 +23,6 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
-            issue-number: 1
+            issue-number: PR
             body: |
               ${PR}
