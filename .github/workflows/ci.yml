@@ -21,11 +21,11 @@ jobs:
         id: findRs
         run: |
           RESULT = $(find . -type f -name "*.rs" -printf '%s\t')
-          echo "::set-output name=test::$RESULT"
+#          echo "::set-output name=test::$RESULT"
 
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v1
-        with:
-            issue-number: ${{ steps.findPr.outputs.pr }}
-            body: |
-              ${{ steps.findRs.outputs.test }}
+#      - name: Create comment
+#        uses: peter-evans/create-or-update-comment@v1
+#        with:
+#            issue-number: ${{ steps.findPr.outputs.pr }}
+#            body: |
+#              ${{ steps.findRs.outputs.test }}
