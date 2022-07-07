@@ -1,7 +1,4 @@
-on:
-  push:
-    branches:
-      - "feature/ci-refactoring"
+on: repository_dispatch
 
 jobs:
   build:
