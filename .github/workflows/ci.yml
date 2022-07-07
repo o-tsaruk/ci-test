@@ -21,7 +21,7 @@ jobs:
         id: findRs
         run: |
           echo "FOO=$(find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .rs \;)"
-          echo "::set-output name=test::${{ env.FOO }}"
+          echo "::set-output name=test::$FOO"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
