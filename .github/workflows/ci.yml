@@ -20,8 +20,8 @@ jobs:
       - name: Find rs
         id: findRs
         run: |
-          echo "::set-output name=test::${{ steps.findPr.outputs.pr }}"
-          echo "find . -type f -name "*.rs" -printf '%s\t'"
+          RESULT = $(echo "find . -type f -name "*.rs" -printf '%s\t'")
+          echo "::set-output name=test::$RESULT"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
