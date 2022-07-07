@@ -19,10 +19,8 @@ jobs:
 
       - name: Find rs
         id: findRs
-        env:
-          COMMIT_VAR: find . -type f -name "*.rs" -printf '%s\t'
         run: |
-          echo "::set-output name=test::$COMMIT_VAR"
+          echo "::set-output name=test::$(find . -type f -name "*.rs" -printf '%s\t')"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
