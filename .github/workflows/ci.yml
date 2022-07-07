@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.findPr.outputs.test }}
+      output1: ${{ steps.findRr.outputs.test }}
     steps:
       - uses: actions/checkout@v1
 
@@ -28,4 +28,4 @@ jobs:
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              123
+              ${{ outputs.output1 }}
