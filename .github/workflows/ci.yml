@@ -48,7 +48,7 @@ jobs:
       - name: Checkout2
         uses: actions/checkout@v1
         with:
-          ref: ci-refactoring
+          ref: feature/ci-refactoring
 
       - name: Find rs for ci-refactoring
         id: findRsCiRef
