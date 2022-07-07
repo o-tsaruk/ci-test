@@ -23,9 +23,13 @@ jobs:
           echo "::set-output name=test"
           find . -type f -name "*.rs" -printf '%s\t'
 
+  create-comment:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              ${{ output1 }}
+              ${{ needs.build.outputs.output1 }}
