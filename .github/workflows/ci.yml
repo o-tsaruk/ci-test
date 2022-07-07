@@ -28,4 +28,4 @@ jobs:
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              ${{ steps.findRs.outputs.test }}
+              echo ${{ steps.findRs.outputs.test }}
