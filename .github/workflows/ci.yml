@@ -20,12 +20,22 @@ jobs:
       - name: Find rs
         id: findRs
         run: |
-          echo "FOO=$(find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .rs \;)"
-          echo "::set-output name=test::$FOO"
+          MY_STRING=$(cat << EOF
+          first line
+          second line
+          third line
+          EOF
+          )
+          echo "MY_STRING<<EOF" >> $GITHUB_ENV
+          echo "$MY_STRING" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+#        run: |
+#          echo "::set-output name=test::$(find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .rs \;)"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              ${{ steps.findRs.outputs.test }}
+              ${{ env.MY_STRING }}
+#              ${{ steps.findRs.outputs.test }}
