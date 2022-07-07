@@ -16,6 +16,9 @@ jobs:
         id: findPr
         with:
           state: open
+
+      - name: Find rs
+        id: findRs
         run: |
           echo "::set-output name=test"
           find . -type f -name "*.rs" -printf '%s\t'
@@ -25,4 +28,4 @@ jobs:
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              ${{ steps.findPr.outputs.output1}}
+              ${{ steps.findRr.outputs.output1}}
