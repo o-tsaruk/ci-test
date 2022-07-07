@@ -19,6 +19,8 @@ jobs:
 
       - name: Find rs
         id: findRs
+        with:
+          ref: 'master'
         run: |
           MY_STRING=$(cat << EOF
           | Command | Description |
