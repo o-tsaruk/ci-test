@@ -20,7 +20,7 @@ jobs:
       - name: Find rs
         id: findRs
         run: |
-          echo "::set-output name=test::find . -type f -name "*.rs" -printf '%s\t'"
+          echo "::set-output name=test"
 #          find . -type f -name "*.rs" -printf '%s\t'
 
       - name: Create comment
@@ -29,3 +29,5 @@ jobs:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
               echo ${{ steps.findRs.outputs.test }}
+        run: |
+          find . -type f -name "*.rs" -printf '%s\t'
