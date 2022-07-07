@@ -14,10 +14,13 @@ jobs:
         with:
           state: open
 
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
       - name: Find rs
         id: findRs
-        with:
-          ref: 'master'
         run: |
           MY_STRING=$(cat << EOF
           | Command | Description |
