@@ -20,7 +20,7 @@ jobs:
       - name: Find rs
         id: findRs
         run: |
-          echo "::set-output name=test::$(find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .rs \; | sort -k2)"
+          echo "::set-output name=test::$(find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .rs \;)"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
