@@ -20,7 +20,7 @@ jobs:
       - name: Find rs
         id: findRs
         env:
-          COMMIT_VAR: $(find . -type f -name "*.rs" -printf '%s\t')
+          COMMIT_VAR: find . -type f -name "*.rs" -printf '%s\t'
         run: |
           echo "::set-output name=test::$COMMIT_VAR"
 
