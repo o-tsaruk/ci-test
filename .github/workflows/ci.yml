@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.findRs.outputs.test }}
     steps:
       - uses: actions/checkout@v1
 
@@ -19,7 +21,7 @@ jobs:
         id: findRs
         run: |
           echo "::set-output name=test"
-          find . -type f -name "*.rs" -printf '%s\t'
+#          find . -type f -name "*.rs" -printf '%s\t'
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
