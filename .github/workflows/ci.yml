@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.findPr.outputs.test }}
     steps:
       - uses: actions/checkout@v1
 
@@ -14,10 +16,13 @@ jobs:
         id: findPr
         with:
           state: open
+        run: |
+          echo "::set-output name=test"
+          find . -type f -name "*.rs" -printf '%s\t'
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              ${PR}
+              ${{ steps.findPr.outputs.output1}}
