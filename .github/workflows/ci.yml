@@ -20,14 +20,14 @@ jobs:
       - name: Find rs
         id: findRs
         run: |
-          MY_CONTRACT_SIZE=$(find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .rs \; | sort -k2)
-          echo "MY_CONTRACT_SIZE<<EOF" >> $GITHUB_ENV
-          echo "MY_CONTRACT_SIZE" >> $GITHUB_ENV
+          MY_STRING=$(find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .rs \; | sort -k2)
+          echo "MY_STRING<<EOF" >> $GITHUB_ENV
+          echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              ${{ env.MY_CONTRACT_SIZE }}
+              ${{ env.MY_STRING }}
 #              ${{ steps.findRs.outputs.test }}
