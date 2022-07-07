@@ -23,7 +23,7 @@ jobs:
           ref: main
 
       - name: Find rs for main
-        id: findRs
+        id: findRsMain
         run: |
           MY_STRING=$(cat << EOF
           | Command | Description |
@@ -50,8 +50,8 @@ jobs:
         with:
           ref: ci-refactoring
 
-      - name: Find rs for main
-        id: findRs
+      - name: Find rs for ci-refactoring
+        id: findRsCiRef
         run: |
           MY_STRING=$(cat << EOF
           | Command | Description |
