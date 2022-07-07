@@ -18,7 +18,7 @@ jobs:
           state: open
 
       - name: Checkout1
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         with:
           ref: main
 
@@ -46,7 +46,7 @@ jobs:
               ${{ env.MY_STRING1 }}
 
       - name: Checkout2
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         with:
           ref: ci-refactoring
 
