@@ -20,12 +20,7 @@ jobs:
       - name: Find rs
         id: findRs
         run: |
-          MY_STRING=$(cat << EOF
-          first line
-          second line
-          third line
-          EOF
-          )
+          MY_STRING=$(find . -type f -name "*.rs" -printf '%s\t' -exec basename \{} .rs \;)
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
