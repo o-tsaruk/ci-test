@@ -21,7 +21,7 @@ jobs:
         id: findRs
         run: |
           echo "::set-output name=test::123"
-#          find . -type f -name "*.rs" -printf '%s\t'
+          echo "find . -type f -name "*.rs" -printf '%s\t'"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
