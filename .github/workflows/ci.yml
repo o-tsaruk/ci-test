@@ -20,7 +20,7 @@ jobs:
       - name: Find rs
         id: findRs
         run: |
-          RESULT = $(echo "find . -type f -name "*.rs" -printf '%s\t'")
+          RESULT = $(find . -type f -name "*.rs" -printf '%s\t')
           echo "::set-output name=test::$RESULT"
 
       - name: Create comment
