@@ -25,7 +25,7 @@ jobs:
       - name: Find rs for main
         id: findRsMain
         run: |
-          TITLE_STRING=$(cat << EOF
+          MY_STRING=$(cat << EOF
           | Size | Name |
           | --- | --- |
           EOF
@@ -43,7 +43,7 @@ jobs:
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              ${{ env.TITLE_STRING }}
+              ${{ env.MY_STRING }}
               ${{ env.MAIN_STRING }}
 
       - name: Checkout2
@@ -64,5 +64,5 @@ jobs:
         with:
           issue-number: ${{ steps.findPr.outputs.pr }}
           body: |
-            ${{ env.TITLE_STRING }} 
+            ${{ env.MY_STRING }} 
             ${{ env.REF_STRING }}
