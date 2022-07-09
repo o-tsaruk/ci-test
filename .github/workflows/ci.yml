@@ -25,17 +25,17 @@ jobs:
       - name: Find rs for main
         id: findRsMain
         run: |
-          MY_STRING=$(cat << EOF
-          | Command | Description |
+          TITLE_STRING=$(cat << EOF
+          | Size | Name |
           | --- | --- |
           EOF
           )
-          echo "MY_STRING<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING" >> $GITHUB_ENV
+          echo "TITLE_STRING<<EOF" >> $GITHUB_ENV
+          echo "TITLE_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-          MY_STRING1=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \;)
-          echo "MY_STRING1<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING1" >> $GITHUB_ENV
+          MAIN_STRING=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \;)
+          echo "MAIN_STRING<<EOF" >> $GITHUB_ENV
+          echo "MAIN_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - name: Create comment
@@ -43,8 +43,8 @@ jobs:
         with:
             issue-number: ${{ steps.findPr.outputs.pr }}
             body: |
-              ${{ env.MY_STRING }}
-              ${{ env.MY_STRING1 }}
+              ${{ env.TITLE_STRING }}
+              ${{ env.MAIN_STRING }}
 
       - name: Checkout2
         uses: actions/checkout@v1
@@ -54,17 +54,9 @@ jobs:
       - name: Find rs for ci-refactoring
         id: findRsCiRef
         run: |
-          MY_STRING=$(cat << EOF
-          | Command | Description |
-          | --- | --- |
-          EOF
-          )
-          echo "MY_STRING<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-          MY_STRING1=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \;)
-          echo "MY_STRING1<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING1" >> $GITHUB_ENV
+          REF_STRING=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \;)
+          echo "REF_STRING<<EOF" >> $GITHUB_ENV
+          echo "REF_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - name: Create comment
@@ -72,5 +64,5 @@ jobs:
         with:
           issue-number: ${{ steps.findPr.outputs.pr }}
           body: |
-            ${{ env.MY_STRING }}
-            ${{ env.MY_STRING1 }}
+            ${{ env.TITLE_STRING }} 
+            ${{ env.REF_STRING }}
