@@ -65,4 +65,5 @@ jobs:
           issue-number: ${{ steps.findPr.outputs.pr }}
           body: |
             ${{ env.MY_STRING }} 
+            ${{ env.MY_STRING1 }}
             ${{ env.MY_STRING2 }}
