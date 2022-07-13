@@ -46,7 +46,7 @@ jobs:
       - name: Find rs for ci-refactoring
         id: findRsCiRef
         run: |
-          MY_STRING2=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \; | sort)
+          MY_STRING2=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \; | sort -k3)
           echo "MY_STRING2<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING2" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
