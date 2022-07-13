@@ -33,7 +33,7 @@ jobs:
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-          MY_STRING1=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \; | sort)
+          MY_STRING1=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \; | sort -k1)
           echo "MY_STRING1<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING1" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
