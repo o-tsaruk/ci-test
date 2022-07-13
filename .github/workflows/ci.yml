@@ -54,9 +54,9 @@ jobs:
       - name: Find rs for ci-refactoring
         id: findRsCiRef
         run: |
-          MY_STRING1=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \;)
-          echo "MY_STRING1<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING1" >> $GITHUB_ENV
+          MY_STRING2=$(find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \;)
+          echo "MY_STRING2<<EOF" >> $GITHUB_ENV
+          echo "$MY_STRING2" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - name: Create comment
@@ -65,4 +65,4 @@ jobs:
           issue-number: ${{ steps.findPr.outputs.pr }}
           body: |
             ${{ env.MY_STRING }} 
-            ${{ env.MY_STRING1 }}
+            ${{ env.MY_STRING2 }}
