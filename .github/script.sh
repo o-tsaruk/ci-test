@@ -1,0 +1,1 @@
+find . -type f -name "*.rs" -printf '| %s |' -exec basename \{} .rs \; | sort -k3
