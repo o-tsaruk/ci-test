@@ -33,7 +33,7 @@ jobs:
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-          MY_STRING1=$(PATH/script.sh)
+          MY_STRING1=${GITHUB_WORKSPACE}/.github/script.sh
           echo "MY_STRING1<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING1" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
