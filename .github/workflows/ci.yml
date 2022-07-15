@@ -24,7 +24,7 @@ jobs:
 
       - name: Script
         run: |
-          "script.sh"
+          "./script.sh"
         shell: bash
 
       - name: Find rs for main
