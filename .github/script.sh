@@ -9,4 +9,5 @@ MY_STRING=$(cat << EOF
 EOF
 )
 
+cat "$MY_STRING"
 export MY_STRING
