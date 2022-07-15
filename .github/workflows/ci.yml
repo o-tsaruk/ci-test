@@ -22,11 +22,10 @@ jobs:
         with:
           ref: main
 
+      - uses: actions/checkout@v2
       - name: Script
-        uses: actions/checkout@v2
         run: |
           "./script.sh"
-        shell: bash
 
       - name: Find rs for main
         id: findRsMain
