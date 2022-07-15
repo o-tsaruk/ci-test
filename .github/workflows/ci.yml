@@ -31,11 +31,6 @@ jobs:
       - name: Find rs for main
         id: findRsMain
         run: |
-          MY_STRING=$(cat << EOF
-          | Size | Name |
-          | --- | --- |
-          EOF
-          )
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
