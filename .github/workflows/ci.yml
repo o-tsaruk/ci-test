@@ -25,6 +25,7 @@ jobs:
       - name: Find rs for main
         id: findRsMain
         run: |
+          "${GITHUB_WORKSPACE}/.github/script.sh"
           MY_STRING=$(cat << EOF
           | Size | Name |
           | --- | --- |
