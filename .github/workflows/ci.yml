@@ -23,6 +23,7 @@ jobs:
           ref: main
 
       - name: Script
+        uses: actions/checkout@v2
         run: |
           "./script.sh"
         shell: bash
