@@ -22,6 +22,7 @@ jobs:
         run: |
           chmod +x "./.github/workflows/script.sh"
           sh ./.github/workflows/script.sh
+          echo MY_STRING
 
       - name: Checkout1
         uses: actions/checkout@v1
