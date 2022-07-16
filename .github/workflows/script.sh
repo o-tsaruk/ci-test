@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+echo "env.MY_STRING"
 
 MY_STRING=$(cat << EOF
 | Size | Name |
