@@ -22,11 +22,11 @@ jobs:
         with:
           ref: main
 
-      - uses: actions/checkout@v2
-      - name: Script
-        run: |
-          chmod +x "./.github/script.sh"
-          "./.github/script.sh"
+#      - uses: actions/checkout@v2
+#      - name: Script
+#        run: |
+#          chmod +x "./.github/script.sh"
+#          "./.github/script.sh"
 
       - name: Find rs for main
         id: findRsMain
