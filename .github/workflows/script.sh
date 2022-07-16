@@ -8,7 +8,7 @@ EOF
 
 {
   echo "TITLE<<EOF"
-  echo "TITLE"
+  echo "$TITLE"
   echo "EOF"
 } >> "$GITHUB_ENV"
 
