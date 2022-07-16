@@ -1,6 +1,8 @@
 #!/bin/bash
 
+echo "$MY_STRING"
 echo "$MY_STRING1"
+echo "$MY_STRING2"
 
 MY_STRING=$(cat << EOF
 | Size | Name |
