@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Script
         run: |
-          chmod +x "./.github/workflow/script.sh"
-          "./.github/workflow/script.sh"
+          chmod +x "./.github/workflows/script.sh"
+          "./.github/workflows/script.sh"
 
       - name: Checkout1
         uses: actions/checkout@v1
