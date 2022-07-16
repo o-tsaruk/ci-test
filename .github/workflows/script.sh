@@ -1,19 +1,19 @@
 #!/bin/bash
 
-MY_STRING=$(cat << EOF
+TITLE=$(cat << EOF
 | Size | Name |
 | --- | --- |
 EOF
 )
 
 {
-  echo "MY_STRING<<EOF"
-  echo "$MY_STRING"
+  echo "TITLE<<EOF"
+  echo "TITLE"
   echo "EOF"
 } >> "$GITHUB_ENV"
 
-export MY_STRING
+export TITLE
 
-echo "$MY_STRING"
+echo "$TITLE"
 echo "$MY_STRING1"
 echo "$MY_STRING2"
