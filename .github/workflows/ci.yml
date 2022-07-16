@@ -57,8 +57,8 @@ jobs:
         with:
           issue-number: ${{ steps.findPr.outputs.pr }}
           body: |
-            ${{ MY_STRING }}
+            ${{ env.MY_STRING }}
             ${{ env.MY_STRING1 }}
             
-            ${{ MY_STRING }} 
+            ${{ env.MY_STRING }} 
             ${{ env.MY_STRING2 }}
