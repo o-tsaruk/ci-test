@@ -1,3 +1,7 @@
+mod something;
+
 fn main() {
     println!("Hello, world!");
+    let _test = something::some_library::some_fn1();
+    let _test2 = something::some_library::some_fn3(3,3);
 }
