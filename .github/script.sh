@@ -9,8 +9,4 @@ MY_STRING=$(cat << EOF
 EOF
 )
 
-touch .env
-MY_STRING >> .env
-cat .env
-
 export MY_STRING
