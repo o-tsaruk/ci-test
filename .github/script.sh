@@ -1,16 +1,10 @@
 #!/bin/bash
 
-TITLE=$(cat << EOF
-| Size | Name |
-| --- | --- |
-EOF
-)
-
-{
-  echo "TITLE<<EOF"
-  echo "$TITLE"
-  echo "EOF"
-} >> "$GITHUB_ENV"
+TITLE=$'
+| Size | Name |\n
+| --- | --- |\n
+'
+echo "$TITLE" >> "$GITHUB_ENV"
 
 export TITLE
 
