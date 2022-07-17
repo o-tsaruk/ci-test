@@ -11,17 +11,18 @@ TITLE="
   echo "EOF"
 } >> "$GITHUB_ENV"
 
-main_data=()
-#file_names=()
+file_names=()
+main_file_sizes=()
 
 count=0
 for item in $MY_STRING1
 do
   count=$((count+1))
   if [ $((count%2)) -eq 0 ]; then
-    echo "+"
+    file_names+=("$item")
+  else
+    main_file_sizes+=("$item")
   fi
-  main_data+=( "$item" )
 done
 
 pr_data=()
@@ -30,5 +31,6 @@ do
   pr_data+=( "$item" )
 done
 
-echo "${main_data[@]}"
+echo "${file_names[@]}"
+echo "${main_file_sizes[@]}"
 echo "${pr_data[@]}"
