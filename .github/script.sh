@@ -35,9 +35,9 @@ do
   pr_data+=( "$item" )
 done
 
-#echo "${file_names[@]}"
-#echo "${main_file_sizes[@]}"
-#echo "${pr_data[@]}"
+echo "${file_names[@]}"
+echo "${main_file_sizes[@]}"
+echo "${pr_data[@]}"
 
 # find contracts in PR branch, which exist in main branch
 for ((i=0;i< ${#pr_data[@]} ;i+=2));
