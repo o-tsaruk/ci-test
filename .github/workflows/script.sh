@@ -17,6 +17,8 @@ export TITLE
 #echo "$TITLE"
 #echo "$MY_STRING1"
 #echo "$MY_STRING2"
-while IFS= read -r line; do
-    echo "... $line ..."
-done <<< "$MY_STRING2"
+for item in $MY_STRING2
+do
+  count=$((count+1))
+  echo $count "$item"
+done
