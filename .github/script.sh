@@ -1,9 +1,9 @@
 #!/bin/bash
 
-TITLE=$'
-| Size | Name |\n
-| --- | --- |\n
-'
+TITLE="
+| Size | Name |
+| --- | --- |
+"
 
 {
   echo "TITLE<<EOF"
