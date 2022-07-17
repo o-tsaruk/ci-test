@@ -14,6 +14,12 @@ EOF
 
 export TITLE
 
-echo "$TITLE"
-echo "$MY_STRING1"
-echo "$MY_STRING2"
+#echo "$TITLE"
+#echo "$MY_STRING1"
+#echo "$MY_STRING2"
+
+echo "For loop:"
+for item in $MY_STRING2
+do
+        echo "Item: $item"
+done
