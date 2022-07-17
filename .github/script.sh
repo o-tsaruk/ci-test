@@ -40,7 +40,8 @@ echo "${main_file_sizes[@]}"
 echo "${pr_data[@]}"
 
 # find contracts in PR branch, which exist in main branch
-for ((i=0;i< ${#pr_data[@]} ;i+=2));
+for ((i=0; i < ${#pr_data[@]}; i+=2));
 do
   echo "${pr_data[i]}"
+  echo "${pr_data[i+1]}"
 done
