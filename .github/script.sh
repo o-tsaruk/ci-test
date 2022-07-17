@@ -4,7 +4,12 @@ TITLE=$'
 | Size | Name |\n
 | --- | --- |\n
 '
-echo "$TITLE" >> "$GITHUB_ENV"
+
+{
+  echo "TITLE<<EOF"
+  echo "$TITLE"
+  echo "EOF"
+} >> "$GITHUB_ENV"
 
 export TITLE
 
