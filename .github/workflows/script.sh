@@ -1,3 +1,5 @@
+#!/bin/bash
+
 TITLE=$(cat << EOF
 | Size | Name |
 | --- | --- |
