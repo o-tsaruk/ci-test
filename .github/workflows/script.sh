@@ -17,9 +17,6 @@ export TITLE
 #echo "$TITLE"
 #echo "$MY_STRING1"
 #echo "$MY_STRING2"
-list=$'MY_STRING2'
-echo "For loop:"
-for item in $list
-do
-        echo "Item: $item"
-done
+while IFS= read -r line; do
+    echo "... $line ..."
+done <<< "$MY_STRING2"
