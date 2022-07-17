@@ -50,12 +50,10 @@ do
       pr_file_sizes+=("${pr_data[i]}")
     fi
   done
-
-#  echo " "
-#  echo "${pr_data[i]}"
-#  echo "${pr_data[i+1]}"
 done
 
+echo "${file_names[@]}"
+echo " "
 echo "${main_file_sizes[@]}"
 echo " "
 echo "${pr_file_sizes[@]}"
