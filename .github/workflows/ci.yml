@@ -39,9 +39,7 @@ jobs:
         id: findRsCiRef
         run: |
           MY_STRING2=$(find . -type f -name "*.rs" -printf '|%s| ' -exec basename \{} .rs \; | sort -k3)
-          echo "MY_STRING2<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING2" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+         
 
       - uses: actions/checkout@v2
       - name: Script
@@ -56,7 +54,7 @@ jobs:
           issue-number: ${{ steps.findPr.outputs.pr }}
           body: |
             ${{ env.TITLE }}
-            ${{ env.MY_STRING1 }}
-            
-            ${{ env.TITLE }} 
-            ${{ env.MY_STRING2 }}
+#            ${{ env.MY_STRING1 }}
+#
+#            ${{ env.TITLE }}
+#            ${{ env.MY_STRING2 }}
