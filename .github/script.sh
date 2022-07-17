@@ -11,7 +11,7 @@ TITLE="
   echo "EOF"
 } >> "$GITHUB_ENV"
 
-export TITLE
+#export TITLE
 
 main_data=()
 for item in $MY_STRING1
