@@ -42,6 +42,10 @@ echo "${pr_data[@]}"
 # find contracts in PR branch, which exist in main branch
 for ((i=0; i < ${#pr_data[@]}; i+=2));
 do
+  for name in "${file_names[@]}"
+  do
+    echo "$name"
+  done
   echo "${pr_data[i]}"
   echo "${pr_data[i+1]}"
 done
