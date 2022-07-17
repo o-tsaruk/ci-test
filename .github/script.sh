@@ -44,7 +44,7 @@ for ((i=0; i < ${#pr_data[@]}; i+=2));
 do
   for name in "${file_names[@]}"
   do
-    if [[ $name == pr_data[i+1] ]]; then
+    if [[ $name == "${pr_data[i+1]}" ]]; then
       echo "+"
     fi
   done
