@@ -15,13 +15,9 @@ EOF
 export TITLE
 
 file_names=()
-for item in $MY_STRING1
+for i in "${!file_names[@]}";
 do
-  file_names+=( "$item" )
+  file_names+=( "${file_names[i]}" )
 done
 
 echo "${file_names[@]}"
-
-echo "${file_names[@]}" >> "$GITHUB_ENV"
-
-export "${file_names[@]}"
