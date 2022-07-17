@@ -35,17 +35,21 @@ do
   pr_data+=( "$item" )
 done
 
-echo "${file_names[@]}"
-echo "${main_file_sizes[@]}"
-echo "${pr_data[@]}"
+#echo "${file_names[@]}"
+#echo "${main_file_sizes[@]}"
+#echo "${pr_data[@]}"
 
 # find contracts in PR branch, which exist in main branch
 for ((i=0; i < ${#pr_data[@]}; i+=2));
 do
   for name in "${file_names[@]}"
   do
-    echo "$name"
+    if [[ $name == pr_data[i+1] ]]; then
+      echo "+"
+    fi
   done
+
+  echo " "
   echo "${pr_data[i]}"
   echo "${pr_data[i+1]}"
 done
