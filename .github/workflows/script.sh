@@ -15,9 +15,9 @@ EOF
 export TITLE
 
 file_names=()
-for i in "${!file_names[@]}";
+for item in $MY_STRING1
 do
-  file_names+=( "${file_names[i]}" )
+  file_names+=( "$item" )
 done
 
 echo "${file_names[@]}"
