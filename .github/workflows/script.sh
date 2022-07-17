@@ -15,7 +15,7 @@ EOF
 export TITLE
 
 file_names=()
-for item in $MY_STRING2
+for item in $MY_STRING1
 do
   file_names+=( "$item" )
 done
