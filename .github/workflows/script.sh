@@ -17,9 +17,9 @@ export TITLE
 #echo "$TITLE"
 #echo "$MY_STRING1"
 #echo "$MY_STRING2"
-
+list=$'MY_STRING2'
 echo "For loop:"
-for item in $MY_STRING2
+for item in $list
 do
         echo "Item: $item"
 done
