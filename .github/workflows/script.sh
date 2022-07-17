@@ -14,11 +14,10 @@ EOF
 
 export TITLE
 
-#echo "$TITLE"
-#echo "$MY_STRING1"
-#echo "$MY_STRING2"
+file_names=()
 for item in $MY_STRING2
 do
-  count=$((count+1))
-  echo $count "$item"
+  file_names+=( "$item" )
 done
+
+echo "${file_names[@]}"
