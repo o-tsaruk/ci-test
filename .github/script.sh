@@ -11,11 +11,16 @@ TITLE="
   echo "EOF"
 } >> "$GITHUB_ENV"
 
-#export TITLE
-
 main_data=()
+#file_names=()
+
+count=0
 for item in $MY_STRING1
 do
+  count=$((count+1))
+  if [ $((count%2)) -eq 0 ]; then
+    echo "+"
+  fi
   main_data+=( "$item" )
 done
 
