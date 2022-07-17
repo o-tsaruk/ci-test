@@ -21,3 +21,7 @@ do
 done
 
 echo "${file_names[@]}"
+
+echo "${file_names[@]}" >> "$GITHUB_ENV"
+
+export "${file_names[@]}"
