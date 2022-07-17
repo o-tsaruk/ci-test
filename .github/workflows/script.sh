@@ -14,10 +14,17 @@ EOF
 
 export TITLE
 
-file_names=()
+main_data=()
 for item in $MY_STRING1
 do
-  file_names+=( "$item" )
+  main_data+=( "$item" )
 done
 
-echo "${file_names[@]}"
+pr_data=()
+for item in $MY_STRING2
+do
+  pr_data+=( "$item" )
+done
+
+echo "${main_data[@]}"
+echo "${pr_data[@]}"
