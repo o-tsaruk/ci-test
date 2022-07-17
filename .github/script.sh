@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# table header
 TITLE="
 | Size | Name |
 | --- | --- |
 "
 
+# write header to github environment
 {
   echo "TITLE<<EOF"
   echo "$TITLE"
@@ -14,6 +16,7 @@ TITLE="
 file_names=()
 main_file_sizes=()
 
+# get contract names and sizes from main branch
 count=0
 for item in $MY_STRING1
 do
@@ -25,12 +28,19 @@ do
   fi
 done
 
+# get contract names and sizes from PR branch
 pr_data=()
 for item in $MY_STRING2
 do
   pr_data+=( "$item" )
 done
 
-echo "${file_names[@]}"
-echo "${main_file_sizes[@]}"
-echo "${pr_data[@]}"
+#echo "${file_names[@]}"
+#echo "${main_file_sizes[@]}"
+#echo "${pr_data[@]}"
+
+# find contracts in PR branch, which exist in main branch
+for ((i=0;i< ${#pr_data[@]} ;i+=2));
+do
+  echo "${pr_data[i]}"
+done
