@@ -47,7 +47,7 @@ do
   for name in "${file_names[@]}"
   do
     if [[ $name == "${pr_data[i+1]}" ]]; then
-      pr_file_sizes+=("$name")
+      pr_file_sizes+=("${pr_data[i]}")
     fi
   done
 
