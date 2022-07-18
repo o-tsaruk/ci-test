@@ -25,9 +25,9 @@ jobs:
       - name: Find rs for main
         id: findRsMain
         run: |
-          MY_STRING1=$(find . -type f -name "*.rs" -printf '%s ' -exec basename \{} .rs \; | sort -k2)
-          echo "MY_STRING1<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING1" >> $GITHUB_ENV
+          MAIN_DATA=$(find . -type f -name "*.rs" -printf '%s ' -exec basename \{} .rs \; | sort -k2)
+          echo "MAIN_DATA<<EOF" >> $GITHUB_ENV
+          echo "$MAIN_DATA" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - name: Checkout2
@@ -38,9 +38,9 @@ jobs:
       - name: Find rs for ci-refactoring
         id: findRsCiRef
         run: |
-          MY_STRING2=$(find . -type f -name "*.rs" -printf '%s ' -exec basename \{} .rs \; | sort -k2)
-          echo "MY_STRING2<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING2" >> $GITHUB_ENV
+          PR_DATA=$(find . -type f -name "*.rs" -printf '%s ' -exec basename \{} .rs \; | sort -k2)
+          echo "PR_DATA<<EOF" >> $GITHUB_ENV
+          echo "$PR_DATA" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - uses: actions/checkout@v2
@@ -56,7 +56,3 @@ jobs:
           issue-number: ${{ steps.findPr.outputs.pr }}
           body: |
             ${{ env.REPORT }}
-#            ${{ env.MY_STRING1 }}
-#
-#            ${{ env.REPORT }}
-#            ${{ env.MY_STRING2 }}

@@ -2,7 +2,7 @@
 
 # create table header
 REPORT=$'
-| Name | Main | PR | Diff |
+| Contract Name | Main | PR | Diff |
 | --- | --- | --- | --- |
 '
 
@@ -10,7 +10,7 @@ file_names=()
 main_file_sizes=()
 # get contract names and sizes from main branch
 count=0
-for item in $MY_STRING1
+for item in $MAIN_DATA
 do
   count=$((count+1))
   if [ $((count%2)) -eq 0 ]; then
@@ -22,7 +22,7 @@ done
 
 # get contract names and sizes from PR branch
 pr_data=()
-for item in $MY_STRING2
+for item in $PR_DATA
 do
   pr_data+=( "$item" )
 done
