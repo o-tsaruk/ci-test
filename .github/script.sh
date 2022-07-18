@@ -8,7 +8,6 @@ REPORT=$'
 
 file_names=()
 main_file_sizes=()
-
 # get contract names and sizes from main branch
 count=0
 for item in $MY_STRING1
@@ -47,18 +46,11 @@ do
   dif_sizes+=( $(( pr_file_sizes[i] - main_file_sizes[i] )) )
 done
 
-echo "${file_names[@]}"
-echo " "
-echo "${main_file_sizes[@]}"
-echo " "
-echo "${pr_file_sizes[@]}"
-echo " "
-echo "${dif_sizes[@]}"
-
 # finish report table
 for (( i=0; i<${#file_names[@]}; i++ ))
 do
-  REPORT=$"$REPORT | ${file_names[i]} | ${main_file_sizes[i]} | ${pr_file_sizes[i]} | ${dif_sizes[i]} |"
+  REPORT="$REPORT | ${file_names[i]} | ${main_file_sizes[i]} | ${pr_file_sizes[i]} | ${dif_sizes[i]} |
+  "
 done
 
 # write header to github environment
