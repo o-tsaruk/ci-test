@@ -51,7 +51,7 @@ done
 dif_sizes=()
 for (( i=0; i<${#main_file_sizes[@]}; i++ ))
 do
-  dif_sizes+=("${pr_file_sizes[i]} - ${main_file_sizes[i]}")
+  dif_sizes+=( $(( pr_file_sizes[i] - main_file_sizes[i] )) )
 done
 
 echo "${file_names[@]}"
