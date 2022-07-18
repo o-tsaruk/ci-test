@@ -35,13 +35,8 @@ do
   pr_data+=( "$item" )
 done
 
-#echo "${file_names[@]}"
-#echo "${main_file_sizes[@]}"
-#echo "${pr_data[@]}"
-
 # find contracts in PR branch, which exist in main branch
 pr_file_sizes=()
-#dif_sizes=()
 for ((i=0; i < ${#pr_data[@]}; i+=2));
 do
   for name in "${file_names[@]}"
@@ -52,8 +47,17 @@ do
   done
 done
 
+# calculate the size difference
+dif_sizes=()
+for (( i=0; i<${#main_file_sizes[@]}; i++ ))
+do
+  dif_sizes+=("${pr_file_sizes[i]} - ${main_file_sizes[i]}")
+done
+
 echo "${file_names[@]}"
 echo " "
 echo "${main_file_sizes[@]}"
 echo " "
 echo "${pr_file_sizes[@]}"
+echo " "
+echo "${dif_sizes[@]}"
