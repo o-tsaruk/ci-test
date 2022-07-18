@@ -61,3 +61,9 @@ echo " "
 echo "${pr_file_sizes[@]}"
 echo " "
 echo "${dif_sizes[@]}"
+
+# finish report table
+for (( i=0; i<${#file_names[@]}; i++ ))
+do
+  REPORT="$REPORT +++"
+done
