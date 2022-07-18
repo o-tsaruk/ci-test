@@ -2,8 +2,7 @@
 
 # table header
 TITLE="
-| Size | Name |
-| --- | --- |
+| Size | Name |\n| --- | --- |
 "
 
 # write header to github environment
