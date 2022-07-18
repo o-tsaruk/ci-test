@@ -6,13 +6,6 @@ REPORT=$'
 | --- | --- |
 '
 
-# write header to github environment
-{
-  echo "REPORT<<EOF"
-  echo "$REPORT"
-  echo "EOF"
-} >> "$GITHUB_ENV"
-
 file_names=()
 main_file_sizes=()
 
@@ -67,3 +60,10 @@ for (( i=0; i<${#file_names[@]}; i++ ))
 do
   REPORT="$REPORT +++"
 done
+
+# write header to github environment
+{
+  echo "REPORT<<EOF"
+  echo "$REPORT"
+  echo "EOF"
+} >> "$GITHUB_ENV"
