@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - name: Find current PR
         uses: jwalton/gh-find-current-pr@v1
@@ -16,7 +16,7 @@ jobs:
           state: open
 
       - name: Checkout1
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
           ref: main
 
@@ -29,7 +29,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Checkout2
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
           ref: feature/ci-refactoring
 
@@ -41,7 +41,7 @@ jobs:
           echo "$PR_DATA" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Script
         run: |
           chmod +x "./.github/script.sh"
