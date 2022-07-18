@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # table header
-TITLE="
+TITLE=$'
 | Size | Name |\n| --- | --- |
-"
+'
 
 # write header to github environment
 {
