@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# table header
-TITLE=$'
+# create table header
+REPORT=$'
 | Size | Name |
 | --- | --- |
 '
 
 # write header to github environment
 {
-  echo "TITLE<<EOF"
-  echo "$TITLE"
+  echo "REPORT<<EOF"
+  echo "$REPORT"
   echo "EOF"
 } >> "$GITHUB_ENV"
 
