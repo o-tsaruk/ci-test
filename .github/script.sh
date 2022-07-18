@@ -58,8 +58,7 @@ echo "${dif_sizes[@]}"
 # finish report table
 for (( i=0; i<${#file_names[@]}; i++ ))
 do
-  REPORT="$REPORT | ${file_names[i]} | ${main_file_sizes[i]} | ${pr_file_sizes[i]} | ${dif_sizes[i]} |
-  "
+  REPORT="$REPORT | ${file_names[i]} | ${main_file_sizes[i]} | ${pr_file_sizes[i]} | ${dif_sizes[i]} | \n"
 done
 
 # write header to github environment
