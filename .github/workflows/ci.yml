@@ -6,8 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.findRs.outputs.test }}
     steps:
       - uses: actions/checkout@v1
 
