@@ -60,5 +60,6 @@ jobs:
         with:
           comment-id: ${{ steps.find_comment.outputs.comment-id }}
           issue-number: ${{ steps.findPr.outputs.pr }}
+          edit-mode: replace
           body: |
             ${{ env.REPORT }}
