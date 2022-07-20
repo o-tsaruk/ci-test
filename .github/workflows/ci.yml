@@ -48,9 +48,17 @@ jobs:
           "./.github/script.sh"
         shell: bash
 
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: find_comment
+        with:
+          issue-number: ${{ steps.findPr.outputs.pr }}
+          comment-author: 'github-actions[bot]'
+
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
+          comment-id: ${{ steps.find_comment.outputs.comment-id }}
           issue-number: ${{ steps.findPr.outputs.pr }}
           body: |
             ${{ env.REPORT }}
