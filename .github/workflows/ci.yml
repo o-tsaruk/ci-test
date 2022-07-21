@@ -1,7 +1,6 @@
 on:
-  push:
-    branches:
-      - "feature/ci-refactoring"
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -9,11 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Find current PR
-        uses: jwalton/gh-find-current-pr@v1
-        id: findPr
-        with:
-          state: open
+      - name: Find rs for ci-refactoring
+        id: findRsCiRef
+        run: |
+          PR_DATA=$(find . -type f -name "*.rs" -printf '%s ' -exec basename \{} .rs \; | sort -k2)
+          echo "PR_DATA<<EOF" >> $GITHUB_ENV
+          echo "$PR_DATA" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Checkout1
         uses: actions/checkout@v3
@@ -28,25 +29,18 @@ jobs:
           echo "$MAIN_DATA" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
-      - name: Checkout2
-        uses: actions/checkout@v3
-        with:
-          ref: feature/ci-refactoring
-
-      - name: Find rs for ci-refactoring
-        id: findRsCiRef
-        run: |
-          PR_DATA=$(find . -type f -name "*.rs" -printf '%s ' -exec basename \{} .rs \; | sort -k2)
-          echo "PR_DATA<<EOF" >> $GITHUB_ENV
-          echo "$PR_DATA" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
       - uses: actions/checkout@v3
       - name: Script
         run: |
           chmod +x "./.github/script.sh"
           "./.github/script.sh"
         shell: bash
+
+      - name: Find current PR
+        uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          state: open
 
       - name: Find Comment
         uses: peter-evans/find-comment@v2
