@@ -30,6 +30,14 @@ done
 # find contracts in PR branch, which exist in main branch
 pr_file_names=()
 pr_file_sizes=()
+
+for (( i=0; i<${#main_file_names[@]}; i++ ))
+do
+  pr_file_names+=("0")
+  pr_file_sizes+=("0")
+done
+
+# find contracts in PR branch, which exist in main branch
 for ((i=0; i < ${#pr_data[@]}; i+=2));
 do
   for name in "${main_file_names[@]}"
@@ -51,7 +59,7 @@ done
 # finish report table
 for (( i=0; i<${#pr_file_names[@]}; i++ ))
 do
-  REPORT="$REPORT | ${pr_file_names[i]} | ${main_file_sizes[i]} | ${pr_file_sizes[i]} | ${dif_sizes[i]} |
+  REPORT="$REPORT | ${main_file_names[i]} | ${main_file_sizes[i]} | ${pr_file_sizes[i]} | ${dif_sizes[i]} |
   "
 done
 
