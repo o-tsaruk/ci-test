@@ -1,6 +1,7 @@
 use crate::functions::mul_for_two;
 
 mod functions;
+mod module1;
 
 fn main() {
     println!("Hello, world!");
