@@ -41,6 +41,7 @@ do
   do
     if [[ "${main_file_names[i]}" == "${pr_data[j+1]}" ]]; then
       pr_file_sizes[i]=("${pr_data[j]}")
+      echo "+++"
       break
     fi
   done
