@@ -39,10 +39,8 @@ for ((i=0; i < ${#main_file_names[@]}; i+=1));
 do
   for ((j=0; j < ${#pr_data[@]}; j+=2));
   do
-    echo "${main_file_names[i]}"
-    echo "${pr_data[j+1]}"
     if [[ "${main_file_names[i]}" == "${pr_data[j+1]}" ]]; then
-      pr_file_sizes[i]=("${pr_data[j]}")
+      pr_file_sizes[i]=${pr_data[j]}
       break
     fi
   done
