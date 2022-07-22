@@ -41,7 +41,6 @@ do
   do
     if [[ "${main_file_names[i]}" == "${pr_data[j+1]}" ]]; then
       pr_file_sizes[i]=("${pr_data[j]}")
-      echo "+++"
       break
     fi
   done
@@ -54,6 +53,7 @@ do
   dif_sizes+=( $(( pr_file_sizes[i] - main_file_sizes[i] )) )
 done
 
+echo "${#pr_file_sizes[@]}"
 # finish report table
 for (( i=0; i<${#main_file_names[@]}; i++ ))
 do
