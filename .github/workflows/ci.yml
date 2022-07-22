@@ -1,16 +1,59 @@
-on: [pull_request]
+on:
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
-    name: Comment a pull_request
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Comment a pull_request
-        uses: mb2dev/github-action-comment-pull-request@1.0.0
+      - name: Find rs for ci-refactoring
+        id: findRsCiRef
+        run: |
+          PR_DATA=$(find . -type f -name "*.rs" -printf '%s ' -exec basename \{} .rs \; | sort -k2)
+          echo "PR_DATA<<EOF" >> $GITHUB_ENV
+          echo "$PR_DATA" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Checkout1
+        uses: actions/checkout@v3
         with:
-          message: "Hello, It's my first comment with Github action !"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          reactions: "+1 | -1 | laugh | hooray | confused | heart | rocket | eyes"
+          ref: main
+
+      - name: Find rs for main
+        id: findRsMain
+        run: |
+          MAIN_DATA=$(find . -type f -name "*.rs" -printf '%s ' -exec basename \{} .rs \; | sort -k2)
+          echo "MAIN_DATA<<EOF" >> $GITHUB_ENV
+          echo "$MAIN_DATA" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v3
+      - name: Script
+        run: |
+          chmod +x "./.github/script.sh"
+          "./.github/script.sh"
+        shell: bash
+
+      - name: Find current PR
+        uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          state: open
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: find_comment
+        with:
+          issue-number: ${{ steps.findPr.outputs.pr }}
+          comment-author: 'github-actions[bot]'
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          comment-id: ${{ steps.find_comment.outputs.comment-id }}
+          issue-number: ${{ steps.findPr.outputs.pr }}
+          edit-mode: replace
+          body: |
+            ${{ env.REPORT }}
