@@ -28,23 +28,20 @@ do
 done
 
 # find contracts in PR branch, which exist in main branch
-pr_file_names=()
 pr_file_sizes=()
-
 for (( i=0; i<${#main_file_names[@]}; i++ ))
 do
-  pr_file_names+=("0")
   pr_file_sizes+=("0")
 done
 
 # find contracts in PR branch, which exist in main branch
-for ((i=0; i < ${#pr_data[@]}; i+=2));
+for name in "${main_file_names[@]}"
 do
-  for name in "${main_file_names[@]}"
+  for ((i=0; i < ${#pr_data[@]}; i+=2));
   do
     if [[ $name == "${pr_data[i+1]}" ]]; then
-      pr_file_names[i]=("$name")
       pr_file_sizes[i]=("${pr_data[i]}")
+      break
     fi
   done
 done
