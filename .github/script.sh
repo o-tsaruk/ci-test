@@ -57,7 +57,7 @@ do
 done
 
 # finish report table
-for (( i=0; i<${#pr_file_names[@]}; i++ ))
+for (( i=0; i<${#main_file_names[@]}; i++ ))
 do
   REPORT="$REPORT | ${main_file_names[i]} | ${main_file_sizes[i]} | ${pr_file_sizes[i]} | ${dif_sizes[i]} |
   "
